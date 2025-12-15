@@ -1,0 +1,28 @@
+package testing_file;
+
+import base.BaseTest;
+import pages.login_page;
+import pages.product_page;
+import pages.checkoutpage;
+import org.testng.annotations.Test;
+
+public class E2ETest extends BaseTest {
+
+    @Test
+    public void endToEndTest() throws InterruptedException {
+
+        // Login
+        login_page login = new login_page(driver);
+        login.login();
+        Thread.sleep(2000);
+
+        // Add product
+        product_page product = new product_page(driver);
+        product.addProductToCart();
+        Thread.sleep(2000);
+
+        // Checkout
+        checkoutpage checkout = new checkoutpage(driver);
+        checkout.chech_out();
+    }
+}
