@@ -1,0 +1,38 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class checkoutpage {
+
+    WebDriver driver;
+
+    By checkoutBtn = By.id("checkout");
+    By firstName = By.id("first-name");
+    By lastName = By.id("last-name");
+    By postalCode = By.id("postal-code");
+    By continueBtn = By.id("continue");
+    By finishBtn = By.id("finish");
+
+    public checkoutpage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void chech_out() throws InterruptedException {
+
+        driver.findElement(checkoutBtn).click();
+        Thread.sleep(3000);
+
+        driver.findElement(firstName).sendKeys("Mukesh");
+        Thread.sleep(2000);
+        driver.findElement(lastName).sendKeys("Puvvula");
+        Thread.sleep(2000);
+        driver.findElement(postalCode).sendKeys("525898");
+        Thread.sleep(2000);
+
+        driver.findElement(continueBtn).click();
+        Thread.sleep(2000);
+        driver.findElement(finishBtn).click();
+        Thread.sleep(3000);
+    }
+}
