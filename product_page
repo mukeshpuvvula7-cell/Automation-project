@@ -1,0 +1,27 @@
+
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class product_page {
+
+    WebDriver driver;
+    
+    By open = By.xpath("//img[@alt=\"Sauce Labs Fleece Jacket\"]");
+    By addToCart = By.xpath("//button[@id=\"add-to-cart\"]");
+    By cartIcon = By.className("shopping_cart_link");
+
+    public product_page(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void addProductToCart() throws InterruptedException {
+        driver.findElement(open).click();
+        Thread.sleep(3000);
+    	driver.findElement(addToCart).click();
+        Thread.sleep(3000);
+        driver.findElement(cartIcon).click();
+        Thread.sleep(3000);
+    }
+}
