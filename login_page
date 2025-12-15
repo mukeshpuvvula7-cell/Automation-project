@@ -1,0 +1,31 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import base.BaseTest;
+
+public class login_page extends BaseTest {
+	
+	WebDriver driver;
+	
+	 By username = By.id("user-name");
+	 By password = By.id("password");
+	 By loginBtn = By.id("login-button");
+	
+	//It receives the WebDriver from the test class and assigns it to the page class driver, so the page can interact with the browser.
+	public login_page(WebDriver driver)
+	{
+		this.driver= driver;
+	}
+	
+	public void login() throws InterruptedException
+	{
+		   driver.findElement(username).sendKeys("error_user");
+		   Thread.sleep(3000);
+	       driver.findElement(password).sendKeys("secret_sauce");
+	       Thread.sleep(3000);
+	       driver.findElement(loginBtn).click();
+	       Thread.sleep(3000);
+	}
+}
